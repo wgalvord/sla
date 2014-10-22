@@ -1,0 +1,11 @@
+Package: slav6
+Type: Package
+Title: Two Group Straight Line ANCOVA
+Version: 1.0
+Date: 2014-08-24
+Author: W Greg Alvord
+Maintainer: W Greg Alvord <greg.alvord@nih.gov>
+Description: This package computes four models associated with the two-group, straight line ANCOVA (ANalysis of COVAriance) problem: (A) full model, which fits two intercepts and two slopes; (B) a completely reduced model, which fits a single intercept and single slope to all the data; (C) a reduced model, which fits two separate intercepts and a single, common slope to the data; and (D) a reduced model, which fits a single, common intercept and two separate slopes to all the data.
+License: GPL-2
+Suggests: MASS, car, ISwR
+Packaged: 2014-08-27 19:05:42 UTC; wgalvord

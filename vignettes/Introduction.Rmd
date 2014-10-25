@@ -356,18 +356,16 @@ $\mathbf{SSE_{A}} \leq \mathbf{SSE_{D}}$.
 
 Table 1: ANOVA Source Table for Models A, B, C and D
 
-  ------- ----------- ----------- ------------------------------ ----------------------------------------------------------------- ------------------------------------------------------------------------------------------------
-   Model   No. Parms     Resid                 SST                                              SSR                                                                              SSE
-           Estimated      df                                                                                                       
-                                                                                                                                   
-   **A**       4       $ N - 4 $   $  \mathbf{y} ' \mathbf{y} $   $ \mathbf{SSR_{A}} = \mathbf{b_{A}}'\mathbf{X_{A}}'\mathbf{y} $   $ \mathbf{SSE_{A}} =  \mathbf{y} ' \mathbf{y} - \mathbf{b_{A}}'\mathbf{X_{A}}'\mathbf{y}    $
-                                                                                                                                   
-   **B**       2       $ N - 2 $   $  \mathbf{y} ' \mathbf{y} $   $ \mathbf{SSR_{B}} = \mathbf{b_{B}}'\mathbf{X_{B}}'\mathbf{y} $   $  \mathbf{SSE_{B}} =  \mathbf{y} ' \mathbf{y} - \mathbf{b_{B}}'\mathbf{X_{B}}'\mathbf{y}    $
-                                                                                                                                   
-   **C**       3       $ N - 3 $   $  \mathbf{y} ' \mathbf{y} $   $ \mathbf{SSR_{C}} = \mathbf{b_{C}}'\mathbf{X_{C}}'\mathbf{y} $   $  \mathbf{SSE_{C}} = \mathbf{y} ' \mathbf{y} - \mathbf{b_{C}}'\mathbf{X_{C}}'\mathbf{y}    $
-                                                                                                                                   
-   **D**       3       $ N - 3 $   $  \mathbf{y} ' \mathbf{y} $   $ \mathbf{SSR_{D}} = \mathbf{b_{D}}'\mathbf{X_{D}}'\mathbf{y} $   $  \mathbf{SSE_{D}} = \mathbf{y} ' \mathbf{y} - \mathbf{b_{D}}'\mathbf{X_{D}}'\mathbf{y}    $
-  ------- ----------- ----------- ------------------------------ ----------------------------------------------------------------- ------------------------------------------------------------------------------------------------
+-----
+
+Model | No. Parms Est. | Resid df | SST | SSR | SSE                                                                                                     
+----- | ------------------- | -------- | --- | --- | ---
+**A** | 4 | $N - 4$ | $\mathbf{y} ' \mathbf{y}$ | $\mathbf{SSR_{A}} = \mathbf{b_{A}}'\mathbf{X_{A}}'\mathbf{y}$ | $\mathbf{SSE_{A}} =  \mathbf{y} ' \mathbf{y} - \mathbf{b_{A}}'\mathbf{X_{A}}'\mathbf{y}$
+**B** | 2 | $N - 2$ | $\mathbf{y} ' \mathbf{y}$ | $\mathbf{SSR_{B}} = \mathbf{b_{B}}'\mathbf{X_{B}}'\mathbf{y}$ | $\mathbf{SSE_{B}} =  \mathbf{y} ' \mathbf{y} - \mathbf{b_{B}}'\mathbf{X_{B}}'\mathbf{y}$
+**C** | 3 | $N - 3$ | $\mathbf{y} ' \mathbf{y}$ | $\mathbf{SSR_{C}} = \mathbf{b_{C}}'\mathbf{X_{C}}'\mathbf{y}$ | $\mathbf{SSE_{C}} = \mathbf{y} ' \mathbf{y} - \mathbf{b_{C}}'\mathbf{X_{C}}'\mathbf{y}$
+**D** | 3 | $N - 3$ | $\mathbf{y} ' \mathbf{y}$ | $\mathbf{SSR_{D}} = \mathbf{b_{D}}'\mathbf{X_{D}}'\mathbf{y}$ | $\mathbf{SSE_{D}} = \mathbf{y} ' \mathbf{y} - \mathbf{b_{D}}'\mathbf{X_{D}}'\mathbf{y}$
+
+-----   
 
 The Extra Sum of Squares Principle and Tests for Parameters Being Zero
 ======================================================================
@@ -789,44 +787,32 @@ intercepts but with a common slope.
 
 We examine the example problem with the sla package. The `eqslo` data
 frame consists of three columns. The first column has class `factor`
-with two levels. The second column contains the $ x  $, or predictor
-(regressor) variable, and the third column contains the $  y $, or
+with two levels. The second column contains the $x$, or predictor
+(regressor) variable, and the third column contains the $y$, or
 criterion variable. The data in `eqslo` data frame are contrived to
 provide statistically different intercepts with a single slope.
 
-`> library(sla) `
+```{r}
+library(sla)
+```
 
 Now we call in the `eqslo` data frame.
 
-`> data(eqslo)`
+```{r}
+data(eqslo)
+```
 
 Execute the `sla` function on the `eqslo` data frame. Call this object
 `obj`.
 
-`> obj <- sla(eqslo) `
+```{r}
+obj <- sla(eqslo)
+```
 
 The print function for the object yields
 
-`> obj`
-
-`Call: sla.default(facxy = eqslo)`
-
-`Coefficients for Models A, B, C and D:`
-
-`Model A:`
-
-`Int_1 Slo_1 Int_2 Slo_2`
-
-`Model B:`
-
-`Com_Int Com_Slo`
-
-`Model C:`
-
-`Int_1 Int_2 Com_Slo`
-
-`Model D:`
-
-`6.400000 1.181818 3.818182`
+```{r}
+obj
+```
 
 Now I will complete the paragraph.

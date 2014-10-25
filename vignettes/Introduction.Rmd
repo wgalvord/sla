@@ -381,7 +381,7 @@ sum of squares for the reduced model D is written
 $ \mathbf{SSR_{D}} = \mbox{SS} (a, b_{1}, b_{2})  $. As stated
 previously, none of the estimated values in model A,
 $  (a_{1}, b_{1}, ...)   $, etc., will, in general, be equal to any of
-the estimates of $ a_{1}, b_{1}  $, etc., in models B, C or D.
+the estimates of $a_{1}, b_{1}$, etc., in models B, C or D.
 
 In the regression analysis of the two-group, straight-line ANCOVA setup,
 there are typically three null hypotheses of interest that arise in

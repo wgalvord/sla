@@ -1,6 +1,6 @@
-\name{slav6-package}
-\alias{slav6-package}
-\alias{slav6}
+\name{sla-package}
+\alias{sla-package}
+\alias{sla}
 \docType{package}
 \title{Two-Group, Straight-Line ANCOVA}
 \description{
@@ -8,7 +8,7 @@ Fits four linear models ("A", "B", "C", and "D") for the two-group, straight-lin
 }
 \details{
 \tabular{ll}{
-Package: \tab slav6\cr
+Package: \tab sla\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2014-08-24\cr

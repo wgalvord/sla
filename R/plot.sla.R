@@ -1,4 +1,6 @@
-plot.sla <- function(slaObj, modelType2Plot = 'A', ...) {
+plot.sla <- function(x, modelType2Plot = 'A', ...) {
+  # For backwards compatibility
+  slaObj <- x
   ## construct new data frame
   input.df <- slaObj$INPUT.df
   summary.input <- summary(slaObj$INPUT.df)

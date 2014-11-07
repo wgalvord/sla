@@ -1,5 +1,4 @@
 \name{sla}
-\alias{sla}
 \alias{sla.default}
 \alias{plot.sla}
 \alias{print.sla}
@@ -41,7 +40,7 @@ Returns an object of class "sla", which is a list containing the following compo
 Dalgaard P (2002) {\emph{Introductory Statistics with R}}. Springer.\cr
 Draper NR and Smith H (1998) {\emph{Applied Regression Analysis}}. 3rd ed. Wiley.\cr
 Fox J (2008) {\emph{Applied Regression Analysis and General Linear Models}}, 2nd ed. Sage.\cr 
-Fox J and Weisberg S (2011) {emph{An R Companion to Applied Regression}}, 2nd ed. Sage.\cr
+Fox J and Weisberg S (2011) {\emph{An R Companion to Applied Regression}}, 2nd ed. Sage.\cr
 Searle SR (1971) {\emph{Linear Models}}, Wiley.\cr
 Venables WN and Ripley BD (2002) {\emph{Modern Applied Statistics with S}}. 4th ed. Springer.
 }

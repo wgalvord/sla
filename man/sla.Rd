@@ -1,4 +1,5 @@
 \name{sla}
+\alias{sla}
 \alias{sla.default}
 \alias{plot.sla}
 \alias{print.sla}
@@ -12,13 +13,12 @@ sla(facxy, ...)
 \method{sla}{default}(facxy, ...)
 \method{print}{sla}(x, ...)
 \method{summary}{sla}(object, ...)
-\method{plot}{sla}(slaObj, modelType2Plot = "A", ...)
+\method{plot}{sla}(x, modelType2Plot = "A", ...)
 }
 \arguments{
   \item{facxy}{ a data frame with three columns in specific order: (1) factor (Group) variable, (2) numeric x-axis predictor, regressor (or independent) variable, and (3) numeric y-axis criterion (or dependent) variable.}
   \item{x}{ an object of class \code{'sla'}, i.e., a list containing data frames, coefficients, and fitted models.}
   \item{object}{ an object of class \code{'sla'}, i.e., a list containing data frames, coefficients, and fitted models.}
-  \item{slaObj}{ an object of class \code{'sla'}, i.e., a list containing data frames, coefficients, and fitted models.}
   \item{modelType2Plot}{ a character letter, "A", "B", "C", or "D", to indicate which model, with its associated fitted lines (abline), to plot.} 
   \item{\dots}{ not used.} 
 }
@@ -129,12 +129,6 @@ plot(eidfObj, mod = 'A')
 plot(eidfObj, mod = 'B')
 plot(eidfObj, mod = 'C')
 plot(eidfObj, mod = 'D')
-## 
-## The function is currently defined as
-function (facxy, ...) 
-{
-    UseMethod("sla")
-  }
 }
 \keyword{ regression }
 \keyword{ linear models }

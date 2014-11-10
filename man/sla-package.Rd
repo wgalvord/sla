@@ -1,6 +1,5 @@
 \name{sla-package}
 \alias{sla-package}
-\alias{sla}
 \docType{package}
 \title{Two-Group, Straight-Line ANCOVA}
 \description{

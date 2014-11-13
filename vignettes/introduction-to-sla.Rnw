@@ -563,7 +563,7 @@ $ H_{0} $ &   df & SS     & MS     & F  &  Prob \\
 \hline
 Equivalent Data Sets     &    $ 2  $    &    $  240.30 $ &  $  120.15 $    &    $ 200.25 $  &  $ < 0.0001 $  \\
 Equivalent Slopes     &    $  1  $    &    $   0.20 $ &  $  0.20  $    &    $  0.33  $  & $ 0.5847  $ \\
-Equivalent Intercepts       &    $ 1  $    &    $  49.16 $ &  $  49.16 $    &    $ 81.94 $  & $ = 0.0001 $ \\
+Equivalent Intercepts       &    $ 1  $    &    $  49.16 $ &  $  49.16 $    &    $ 81.94 $  & $ 0.0001 $ \\
 \hline
 Residual  &  6   &  3.6 &  0.6   &       &      \\  
 \hline

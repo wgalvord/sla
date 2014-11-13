@@ -633,7 +633,7 @@ plot(obj, modelType2Plot = 'D')
 
 \subsection{Application to the \texttt{whiteside} data frame}
 
-We next apply the sla package to the  \texttt{whiteside} data frame discussed in Section 6.1 of  \emph{Modern Applied Statistics with S} (Venables and Ripley, 2002, pp 139-44).  The \texttt{whiteside} data frame consists  of three columns.  The first column is a \texttt{factor} variable, \texttt{Insul}, at two levels, \texttt{Before} and \texttt{After}.   The second column contains the predictor (regressor) variable \texttt{Temp}, and the third column contains the criterion variable, \texttt{Gas}. 
+We next apply the sla package to the  \texttt{whiteside} data frame discussed in Section 6.1 of  \emph{Modern Applied Statistics with S} (Venables and Ripley, 2002, pp 139-44).  The \texttt{whiteside} data frame consists  of three columns.  The first column is a \texttt{factor} variable, \texttt{Insul}, at two levels, \texttt{Before} and \texttt{After}.   The second column contains the predictor (regressor) variable, \texttt{Temp}, and the third column contains the criterion variable, \texttt{Gas}. 
 
 <<>>=
 library(sla) 

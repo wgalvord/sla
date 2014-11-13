@@ -5,3 +5,5 @@ This package considers the simplest case of ANCOVA, the two-group, straight-line
 TODO:
 
 - nice to have: move documentation to roxygen
+- work on table justification in vignette
+- add modelType2Plot = "all" option

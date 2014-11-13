@@ -576,105 +576,36 @@ Residual  &  6   &  3.6 &  0.6   &       &      \\
 \vspace{2 mm}
 
 \section{ The sla Package}
+
+<<set_opts, echo = FALSE>>=
+options(show.signif.stars = FALSE)
+@
+
 \subsection{Application to the \texttt{eqslo} data frame}
-We examine the example problem with the sla package.  The \texttt{eqslo} data frame consists of three columns.  The first column has class \texttt{factor} with two levels.  The second column contains the $ x  $, or predictor (regressor) variable, and the third column contains the $  y $, or criterion variable. The data in the \texttt{eqslo} data frame are contrived to provide statistically different intercepts with a single slope. 
-\vspace{ 3 mm}
+We examine the example problem with the sla package.  The \texttt{eqslo} data frame consists of three columns.  The first column has class \texttt{factor} with two levels.  The second column contains the $ x  $, or predictor (regressor) variable, and the third column contains the $  y $, or criterion variable. The data in the \texttt{eqslo} data frame are contrived to provide statistically different intercepts with a single slope.
 
-\noindent \texttt{> library(sla)   } 
-
-\vspace{3 mm}
+<<>>=
+library(sla)
+@
 
 \noindent Call the \texttt{eqslo} data frame into the workspace and display it.  
 
-
-
- 
-\vspace{3 mm}
- 
-\noindent \texttt{>  data(eqslo)} 
-
-\vspace{3 mm}
-
-\noindent \texttt{> eqslo}
-
-\noindent \texttt{~~group x~  y}
-   
-\noindent \texttt{1~~    one 1~  4}
-
-\noindent \texttt{2~~   one 2~  7}
-
-\noindent \texttt{3~~    one 3~  8}
-
-\noindent \texttt{4~~    one 4 11}
-
-\noindent \texttt{5~~    one 5 15}
-
-\noindent \texttt{6~~    two 1 14}
-
-\noindent \texttt{7~~    two 2 17}
-
-\noindent \texttt{8~~    two 3 18}
-
-\noindent \texttt{9~~    two 4 21}
-
-\noindent \texttt{10~   two 5 24}
-
-\vspace{3 mm}
+<<>>=
+data(eqslo)
+eqslo
+@
  
 \noindent Execute the \texttt{sla} function on the \texttt{eqslo} data frame.  Call this object \texttt{obj}.
 
-
-
-\vspace{3 mm}
-
-\noindent \texttt{> obj <- sla(eqslo) }
-
-\vspace{3 mm}
+<<>>=
+obj <- sla(eqslo)
+@
 
 \noindent The print function for the object yields
-\vspace{2 mm} 
 
-\noindent \texttt{> obj}
-
-\vspace{1 mm}
-\noindent \texttt{Call:  sla.default(facxy = eqslo)}
-
-\vspace{3 mm}
-\noindent \texttt{Coefficients for Models A, B, C and D:}
-
-\vspace{3 mm}
-
-\noindent \texttt{Model A:}
-
-\noindent \texttt{Int\_1 Slo\_1 Int\_2 Slo\_2} 
-
-\noindent \texttt{ \hspace{1mm}1.2   \hspace{ 2 mm}  2.6  \hspace{1 mm}11.6   \hspace{ 2 mm}        2.4} 
-
-\noindent \vspace{1 mm}
-
-\noindent \texttt{Model B:}
-
-\noindent \texttt{Com\_Int Com\_Slo} 
-
-\noindent \texttt{\hspace{7 mm}6.4  \hspace{6 mm}   2.5} 
-
-\vspace{3 mm}
-
-\noindent \texttt{Model C:}
-
-\noindent \texttt{Int\_1   Int\_2 Com\_Slo}
- 
-\noindent \texttt{\hspace{3.5 mm}1.5 \hspace{1.5 mm}11.3   \hspace{5 mm}  2.5} 
-
-\vspace{3 mm}
-
-\noindent \texttt{Model D:}
-
-\noindent \texttt{\hspace{3 mm}Com\_Int  \hspace{4.5 mm}  Slo\_1 \hspace{4.5 mm}   Slo\_2}
-
-\noindent \texttt{6.400000 1.181818 3.818182}
-
-\vspace{4 mm}
+<<>>=
+obj
+@
 
 \noindent The \texttt{print} function for the object \texttt{obj} displays the call and the coefficients for models A, B, C, and D, respectively.  Under model A, two lines are fit through the data.  The estimated intercept and slope for the first group are $ a_{1} = 1.2  $ and $ b_{1} = 2.6  $.  The estimated intercept and slope for the second group are $  a_{2} = 11.6 $ and $ b_{2} = 2.4  $.  For model B, the estimates for the intercept and slope (for both groups combined) are $  a = 6.4  $ and $ b = 2.5  $.  For model C, the estimates for the two intercepts are $  a_{1} = 1.5 $ and $ a_{2} = 11.3  $.  The estimate for the common slope is $ b = 2.5  $.  Finally, for model D, the estimate for the common intercept is $  a = 6.4 $, while the estimates for the slopes are, respectively, $ b_{1} = 1.18  $ and $ b_{2} = 3.82  $. 
 
@@ -682,310 +613,83 @@ We examine the example problem with the sla package.  The \texttt{eqslo} data fr
 
 \noindent The \texttt{summary} function displays the call and two tables.  The top table provides a brief description of each model, the number of parameters fit, the residual degrees of freedom, the residual sum of squares and the residual mean square for models A, B, C and D.  The bottom table provides descriptions for the three tests: (1) equivalent data sets, (2) equivalent slopes, and (3) equivalent intercepts.  It includes the reductions (differences) in the sums of squares  between, respectively, models B, C, and D and model A, the $  F $ statistics, and the probabilities associated with hypotheses.  
 
-\vspace{2 mm}
-
-\noindent \texttt{> summary(obj)}
-
-\vspace{2mm}
-
-\noindent \texttt{Call:  sla.default(facxy = eqslo)}
-\vspace{2 mm}
-
-\noindent \texttt{Summary of ANCOVA Tests. . .}
-\vspace{2 mm}
-
-\noindent \texttt{~~  Description of Fits for 4 ANCOVA Models} 
-
-\noindent \texttt{~  Description of Fit Np Res df Res SS Res MS}
-
-\noindent \texttt{1 Mod A: Ind I,Ind S  ~4 ~~~~      6  ~ 3.60 ~  0.60}
-
-\noindent \texttt{2 Mod B: Com I,Com S  ~2 ~~~~       8 243.90~  30.49}
-
-\noindent \texttt{3 Mod C: Ind I,Com S ~3 ~~~~       7 ~  3.80~~   0.54}
-
-\noindent \texttt{4 Mod D: Com I,Ind S  ~3 ~~~~      7  ~52.76  ~ 7.54}
-
-\vspace{2 mm}
-
-\noindent \texttt{~ ANCOVA Tests: Two Groups/Straight Line Fits }
-
-\vspace{2 mm}
-
-\noindent \texttt{~~~~~~~~~~~~~~              Test df~~~~     SS F Stat~~   prob}
-
-\noindent \texttt{1 Ho: Equiv D.Sets~  2 240.30 200.25 0.0000}
-
-\noindent \texttt{2 Ho: Equiv Slopes~  1~~   0.20~~   0.33 0.5847}
-
-\noindent \texttt{3 Ho: Equiv Inters~  1~  49.16~  81.94 0.0001   }
-
-\vspace{2 mm} 
+<<>>=
+summary(obj)
+@
 
 In this problem, the data were contrived to yield statistically equivalent slopes with statistically different intercepts.  The hypothesis for equivalent data sets is rejected (at the $ \alpha $ = 0.05  level), p = 0.0000.  The hypothesis for equivalent slopes is \emph{not} rejected, p = 0.5847.  The hypothesis for equivalent slopes is rejected, p = 0.0001.  
 
 \vspace{2 mm}
 
-\noindent The \texttt{plot} function plots the data evaluated in the \texttt{sla} object, along with the fitted lines for the model specified in the  \texttt{modelType2Plot} argument.  The default selection is  \texttt{'A'}.  For the current problem, we view all four plots with the following code chunk:
+\noindent The \texttt{plot} function plots the data evaluated in the \texttt{sla} object, along with the fitted lines for the model specified in the  \texttt{modelType2Plot} argument.  The default selection is  \texttt{'A'}.  For the current problem, we view all four plots with the following code chunk (Figure 2):
 
-\vspace{2 mm}          
-
-\noindent \texttt{> par(mfrow = c(2,2))}
-
-\noindent \texttt{> plot(obj, modelType2Plot = 'A')}
-
-\noindent \texttt{> plot(obj, mod = 'B')}
-
-\noindent \texttt{> plot(obj, mod = 'C')}
-
-\noindent \texttt{> plot(obj, mod = 'D')}
-
-\begin{center} 
-\begin{figure}
-\includegraphics[scale = 0.90]{eqsloABCD.pdf} 
-\label{Fig. 2}
-\caption{Four models of interest fit to the \texttt{eqslo} data: (A) Individual intercepts and individual slopes, (B) Single intercept and single slope, (C) Individual intercepts and single slope, (D) Single intercept and individual slopes.}
-\end{figure}
-\end{center}
+<<abcd_plot, fig.cap = "Four models of interest fit to the eqslo data: (A) Individual intercepts and individual slopes, (B) Single intercept and single slope, (C) Individual intercepts and single slope, (D) Single intercept and individual slopes.">>=
+par(mfrow = c(2, 2))
+plot(obj, modelType2Plot = 'A')
+plot(obj, modelType2Plot = 'B')
+plot(obj, modelType2Plot = 'C')
+plot(obj, modelType2Plot = 'D')
+@
 
 \subsection{Application to the \texttt{whiteside} data frame}
 
 We next apply the sla package to the  \texttt{whiteside} data frame discussed in Section 6.1 of  \emph{Modern Applied Statistics with S} (Venables and Ripley, 2002, pp 139-44).  The \texttt{whiteside} data frame consists  of three columns.  The first column is a \texttt{factor} variable, \texttt{Insul}, at two levels, \texttt{Before} and \texttt{After}.   The second column contains the predictor (regressor) variable \texttt{Temp}, and the third column contains the criterion variable, \texttt{Gas}. 
 
-\vspace{ 3 mm}
+<<>>=
+library(sla) 
+library(MASS)
+data(whiteside)
+@
 
-\noindent \texttt{> library(sla)   } 
-
-\noindent \texttt{> library(MASS) }
-
-\noindent \texttt{> data(whiteside) }  
-
-\vspace{3 mm}
-
- 
 \noindent Apply the \texttt{sla} function to the \texttt{whiteside} data frame; call this object \texttt{wsobj}.
 
-
-
-\vspace{3 mm}
-
-\noindent \texttt{> wsobj <- sla(whiteside) }
-
-\vspace{3 mm}
+<<>>=
+wsobj <- sla(whiteside)
+@
 
 \noindent The print function for the object yields
-\vspace{3 mm} 
 
+<<>>=
+wsobj
+@
 
-\noindent \texttt{> wsobj}
+\noindent The \texttt{print} function for the object \texttt{wsobj} displays the call and the coefficients for models A, B, C, and D, respectively.  Under model A, two unconstrained lines are fit through the data.  The estimated intercept and slope for the \texttt{Before} group are $ a_{1} = 6.854  $ and $ b_{1} = -0.393  $, while the estimated intercept and slope for the \texttt{After} group are $  a_{2} = 4.724 $ and $ b_{2} = -0.278  $.   
 
 \vspace{2 mm}
-\noindent \texttt{Call:  sla.default(facxy = whiteside)}
-
-\vspace{3 mm}
-\noindent \texttt{Coefficients for Models A, B, C and D:}
-
-\vspace{3 mm}
-
-\noindent \texttt{Model A:}
-
-\noindent \texttt{\hspace{9 mm} Int\_1 \hspace{11 mm} Slo\_1 \hspace{10 mm} Int\_2 \hspace{13.5 mm}Slo\_2} 
-
-\noindent \texttt{ \hspace{0 mm}6.8538277   \hspace{ 1 mm}  -0.3932388  \hspace{1 mm} 4.7238497  \hspace{ 1 mm}       -0.2779350} 
-
-\noindent \vspace{0 mm}
-
-\noindent \texttt{Model B:}
-
-\noindent \texttt{\hspace{5 mm} Com\_Int \hspace{12 mm} Com\_Slo} 
-
-\noindent \texttt{\hspace{0 mm} 5.4861933  \hspace{6 mm}   -0.2902082 } 
-
-\vspace{3 mm}
-
-\noindent \texttt{Model C:}
-
-\noindent \texttt{\hspace{7 mm} Int\_1  \hspace{7 mm} Int\_2  \hspace{7 mm} Com\_Slo}
- 
-\noindent \texttt{\hspace{0 mm} 6.551329 \hspace{1.5 mm} 4.986124  \hspace{1.5 mm}  -0.336697} 
-
-\vspace{3 mm}
-
-\noindent \texttt{Model D:}
-
-\noindent \texttt{\hspace{7 mm}Com\_Int  \hspace{8.5 mm}  Slo\_1 \hspace{8.5 mm}   Slo\_2}
-
-\noindent \texttt{\hspace{0 mm} 5.6397812   -0.2155722    -0.4319765}
-
-\vspace{4 mm}
-
-\noindent The \texttt{print} function for the object \texttt{wsobj} displays the call and the coefficients for models A, B, C, and D, respectively.  Under model A, two unconstrained lines are fit through the data.  The estimated intercept and slope for the \texttt{Before} group are $ a_{1} = 6.854  $ and $ b_{1} = -0.393  $, while the estimated intercept and slope for the \texttt{After} group are $  a_{2} = 4.724 $ and $ b_{2} = -0.278  $.    
-
-\vspace{4 mm}
 
 \noindent Greater detail regarding various aspects of the \texttt{wsobj} object can be obtained by interogating its attributes. 
 
-\vspace{2 mm}
-
-\noindent \texttt{> attributes(wsobj)}
-
-\vspace{2 mm}
-
-\noindent \texttt{\$names}
-
-
-\noindent \texttt{ [1] "Call" }
-
-\noindent \texttt{ [2] "INPUT.df" }
-
-\noindent \texttt{ [3] "Summary of Input Data Frame" }
-
-\noindent \texttt{ [4] "Mod.A" }
-
-\noindent \texttt{ [5] "Mod.B" }
-
-\noindent \texttt{ [6] "Mod.C" }
-
-\noindent \texttt{ [7] "Mod.D" }
-
-\noindent \texttt{ [8] "Fit.Table" }
-
-\noindent \texttt{ [9] "Test.Table" }
-
-\noindent \texttt{[10] "Fit.Table.Pretty" }
-
-\noindent \texttt{[11] "Test.Table.Pretty" }
-
-\vspace{ 4 mm}
+<<>>=
+attributes(wsobj)
+@
 
 \noindent For example, suppose we are interested in further exploring a summary of the full model, i.e., model A.  The following command produces essentially the same output as that obtained by Venables and Ripley (p. 142) for their \texttt{gasBA} object.  
 
-\vspace{2 mm}
-
-\noindent \texttt{> summary(wsobj\$Mod.A)}
-
-\vspace{2 mm}
-
-\noindent \texttt{Call:}
-
-\noindent \texttt{lm(formula = y $ \sim $ X.A -1}
-
-\vspace{1 mm}
-
-\ldots
-
-\vspace{2 mm}
-
-\noindent \texttt{Coefficients:}
-
-\noindent \texttt{\hspace{12 mm} Estimate  \hspace{1 mm} Std.Error  \hspace{1 mm} t value \hspace{1 mm} Pr($>$|t|)}
-
-\noindent \texttt{X.Ai1 \hspace{2 mm} 6.85383  \hspace{4.5 mm} 0.13596   \hspace{5.5 mm} 50.41  \hspace{4 mm} $<$2e-16} 
-
-\noindent \texttt{X.Ai1x \hspace{0 mm}-0.39324  \hspace{4.5 mm} 0.02249   \hspace{5.25 mm}-17.49  \hspace{4 mm} $<$2e-16} 
-
-\noindent \texttt{X.Ai2 \hspace{2 mm} 4.72385  \hspace{4.5 mm} 0.11810   \hspace{5.5 mm} 40.00  \hspace{4 mm} $<$2e-16} 
-
-\noindent \texttt{X.Ai2x \hspace{0 mm}-0.27793  \hspace{4.5 mm} 0.02292   \hspace{5.25 mm}-12.12  \hspace{4 mm} $<$2e-16} 
-
-\vspace{2 mm}
-
-\ldots
-
-\vspace{4 mm}
+<<>>=
+summary(wsobj$Mod.A)
+@
 
 \noindent The \texttt{summary} function for this object once again displays the call and two tables.  The top table (essentially \texttt{wsobj\$Fit.Table.Pretty}) provides a brief description of each model, the number of parameters fit, the residual degrees of freedom, the residual sum of squares and the residual mean square for models A, B, C and D.  The bottom table (essentially \texttt{wsobj\$Test.Table.Pretty}) provides description for the three tests: (1) equivalent data sets, (2) equivalent slopes, and (3) equivalent intercepts.  It includes the reductions (differences) in the sums of squares  between, respectively, models B, C, and D and model A, the $  F $ statistics, and the probabilities associated with hypotheses.  
 
-\vspace{2 mm}
-
-\noindent \texttt{> summary(wsobj)}
-
-\vspace{2mm}
-
-\noindent \texttt{Call:  sla.default(facxy = whiteside)}
-\vspace{2 mm}
-
-\noindent \texttt{Summary of ANCOVA Tests. . .}
-\vspace{2 mm}
-
-\noindent \texttt{~  Description of Fits for 4 ANCOVA Models} 
-
-\vspace{3 mm}
-
-\noindent \texttt{~  Description of Fit Np Res df Res SS Res MS}
-
-\vspace{0 mm}
-
-\noindent \texttt{1 Mod A: Ind I,Ind S  ~4 ~~~    52  ~ 5.43 ~  0.10}
-
-\noindent \texttt{2 Mod B: Com I,Com S  ~2 ~~~    54 ~39.99~~  0.74}
-
-\noindent \texttt{3 Mod C: Ind I,Com S ~3 ~~~     53 ~  6.77~~   0.13}
-
-\noindent \texttt{4 Mod D: Com I,Ind S  ~3 ~~~    53  ~20.02  ~ 0.38}
-
-\vspace{2 mm}
-
-\noindent \texttt{~ ANCOVA Tests: Two Groups/Straight Line Fits }
-
-\vspace{2 mm}
-
-\noindent \texttt{~~~~~~~~~~~~~~              Test df~~~~     SS F Stat~~   prob}
-
-\noindent \texttt{1 Ho: Equiv D.Sets~  2 ~34.57 165.67 ~0e+00}
-
-\noindent \texttt{2 Ho: Equiv Slopes~  1~~   1.35~   12.89 ~7e-04}
-
-\noindent \texttt{3 Ho: Equiv Inters~  1~  14.59~139.88 ~0e+00   }
-
-\vspace{2 mm} 
+<<>>=
+summary(wsobj)
+@
 
 \noindent For the \texttt{whiteside} data, the null hypotheses for equivalent (1) data sets, (2) slopes, and (3) intercepts are all rejected.  The hypothesis for equivalent data sets is rejected, p $ << $ 0.0000.  The hypothesis for equivalent slopes is also rejected, p = 0.0007307.  The following command, which makes use of two of the attributes of  \texttt{wsobj}, reproduces Venables and Ripley's (2002) results on page 143.
 
-\vspace{3 mm}
-
-% \vspace{2 mm}
-
-\noindent \texttt{> anova(wsobj\$Mod.C, wsobj\$Mod.A}
-
-\noindent \texttt{Analysis of Variance Table}
-
-\vspace{2 mm}
-
-\noindent \texttt{Model 1: y $ \sim $X.C - 1}
-
-\noindent \texttt{Model 2: y $ \sim $X.A - 1}
-
-\noindent \hspace{2 mm} \texttt{Res.Df}  \hspace{9 mm} \texttt{RSS}  \hspace{2 mm}  \texttt{Df}  \hspace{2 mm} \texttt{Sum of Sq}  \hspace{13 mm} \texttt{F} \hspace{7 mm} \texttt{Pr($>$F)} 
-
-\noindent \texttt{1} \hspace{6 mm} \texttt{53} \hspace{ 3.75 mm } \texttt{6.7704}
-
-\noindent \texttt{2} \hspace{6 mm} \texttt{52} \hspace{ 3.75 mm } \texttt{5.4252} \hspace{4 mm} \texttt{1} \hspace{1 mm} \hspace{6 mm} \texttt{1.3451} \hspace{2 mm} \texttt{12.893} \hspace{ 1.5 mm } \texttt{0.0007307} 
-
-\vspace{2 mm}
+<<>>=
+anova(wsobj$Mod.C, wsobj$Mod.A)
+@
 
 \noindent Finally, the hypothesis of equivalent intercepts is rejected, p $ << $ 0.0000.  In summary, we conclude that model A, the full model, is the best-fitting model for the \texttt{whiteside} data.  We agree with the conclusion of Venables and Ripley (p. 143) that ``. . . separate slopes are indeed necessary.''  A plot of model A is obtained with command:
 
-\vspace{2 mm}
-
-\noindent \texttt{> plot(wsobj), mod = `A'} 
-
-\vspace{2 mm}
+<<a_plot, fig.cap = "Model A: Individual intercepts and individual slopes for the whiteside data.">>=
+plot(wsobj, mod = 'A')
+@
 
 \noindent Figure 3 displays the \texttt{whiteside} data with the fitted regression lines for model A.  
- 
-\begin{center} 
-\begin{figure}
-
-\includegraphics[scale = 0.75]{whitesideModAplot.pdf} 
-\label{Fig. 1}
-\caption{Model A: Individual intercepts and individual slopes for the \texttt{whiteside} data.}
-\end{figure}
-\end{center}
-
 
 \vspace{200 mm}
-
 
 \begin{thebibliography}
 {widest label}
@@ -996,15 +700,6 @@ We next apply the sla package to the  \texttt{whiteside} data frame discussed in
 \bibitem{SS1971} Searle SR (1971) \emph{Linear Models}, Wiley.
 \bibitem{VR2002} Venables WN and Ripley BD (2002) \emph{Modern Applied Statistics with S}, 4th ed. Springer
 
-
 \end{thebibliography}
-
-
-
-\bigskip
-\bigskip
-
-
-
 
 \end{document}  

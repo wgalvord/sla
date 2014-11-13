@@ -1,4 +1,5 @@
 *.log
 *.gz
 *.tex
+*.aux
 introduction-to-sla.pdf

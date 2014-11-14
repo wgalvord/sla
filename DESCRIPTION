@@ -1,12 +1,12 @@
 Package: sla
 Type: Package
 Title: Two Group Straight Line ANCOVA
-Description: This package computes four models associated with the two-group, 
-    straight line ANCOVA (ANalysis of COVAriance) problem: (A) full model, which 
-    fits two intercepts and two slopes; (B) a completely reduced model, which 
-    fits a single intercept and single slope to all the data; (C) a reduced 
-    model, which fits two separate intercepts and a single, common slope to the 
-    data; and (D) a reduced model, which fits a single, common intercept and two 
+Description: This package computes four models associated with the two-group,
+    straight line ANCOVA (ANalysis of COVAriance) problem: (A) full model, which
+    fits two intercepts and two slopes; (B) a completely reduced model, which
+    fits a single intercept and single slope to all the data; (C) a reduced
+    model, which fits two separate intercepts and a single, common slope to the
+    data; and (D) a reduced model, which fits a single, common intercept and two
     separate slopes to all the data.
 Version: 0.1
 License: GPL-2
@@ -16,9 +16,9 @@ Authors@R: as.person(c(
     ))
 Depends:
     R (>= 3.0.2)
-Suggests: 
-    MASS, 
-    car, 
-    ISwR, 
+Suggests:
+    MASS,
+    car,
+    ISwR,
     knitr
 VignetteBuilder: knitr
